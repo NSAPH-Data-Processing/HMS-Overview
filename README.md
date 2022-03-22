@@ -1,6 +1,6 @@
-# HMS Smoke Plume Data Overview
-This repository contains documentation and general information concerning the HMS Smoke Data
-shapefiles which can be downloaded
+# HMS Smoke Product Data Overview
+This repository contains code, documentation and general information concerning the
+HMS smoke product shapefiles which can be downloaded
 [here](https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/).
 
 ## Missing values
@@ -94,4 +94,4 @@ Both CSVs consist of daily readings where the only value which appears is 5,16, 
 
 In the repo code, HMS_county_2020.csv is used in two scripts:
 * [Utilities.R](https://github.com/xiaodan-zhou/covid_wildfire/blob/master/src/Utilities.R)
-* [combine.R](https://github.com/xiaodan-zhou/covid_wildfire/blob/master/src/combine.R)-
+* [combine.R](https://github.com/xiaodan-zhou/covid_wildfire/blob/master/src/combine.R)
