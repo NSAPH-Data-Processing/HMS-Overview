@@ -68,5 +68,5 @@ hms_df["Density"] = hms_df["Density"].astype(float)
 #save data to file.
 hms_df.to_file("../data/hms_smoke_shapes_2005_2021/hms_smoke_shapes_20050805_20211231.shp")
 
-meta_df = pd.concat(meta_list)
-meta_df.to_csv("../data/hms_smoke_shapes_2005_2021/hms_2005_2021_metadata.csv")
+meta_df = pd.DataFrame.from_records(meta_list)
+meta_df.to_csv("../data/hms_2005_2021_metadata.csv")
