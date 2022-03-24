@@ -1,30 +1,36 @@
 # HMS Smoke Product Data Overview
 This repository contains code, documentation and general information concerning the
-HMS smoke product shapefiles which can be downloaded
-[here](https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/).
+HMS smoke product shapefiles which can be downloaded at
+https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/ .
+
+The dataset reviewed contains data from 2005.08.05 (the first day for which shapes are
+available) to 2021.12.31 (the last day of 2021). Data up to the present day is available
+through the website.
 
 ## Missing values
-(Work shown in Jupyter Notebook hms_investigations.ipynb)
+(Work shown in Jupyter Notebook hms_investigations_1.ipynb)
 
-| year | NAN-Density | NAN-Start/End | NAN-Satellite | Total |
-|------|-------------|---------------|---------------|-------|
-| 2005 | 6296        | 0             | 6296          | 6296  |
-| 2006 | 15453       | 0             | 15453         | 15453 |
-| 2007 | 19623       | 0             | 19881         | 19881 |
-| 2008 | 5076        | 0             | 23285         | 23285 |
-| 2009 | 23369       | 0             | 23369         | 23517 |
-| 2010 | 7446        | 0             | 26881         | 27241 |
-| 2011 | 0           | 0             | 33721         | 33721 |
-| 2012 | 0           | 0             | 27901         | 27972 |
-| 2013 | 0           | 0             | 23162         | 23162 |
-| 2014 | 0           | 0             | 18565         | 18565 |
-| 2015 | 12          | 12            | 16182         | 16357 |
-| 2016 | 0           | 0             | 19008         | 21280 |
-| 2017 | 0           | 0             | 0             | 24739 |
-| 2018 | 306         | 306           | 306           | 40948 |
-| 2019 | 0           | 0             | 0             | 42945 |
-| 2020 | 0           | 12            | 0             | 45329 |
-| 2021 | 0           | 0             | 0             | 27573 |
+| year | missing_day | NAN-Density | NAN-Start/End | NAN-Satellite | Total |
+|------|-------------|-------------|---------------|---------------|-------|
+| 2005 | 2           | 6296        | 0             | 6296          | 6296  |
+| 2006 | 9           | 15453       | 0             | 15453         | 15453 |
+| 2007 | 7           | 19623       | 0             | 19881         | 19881 |
+| 2008 | 7           | 5076        | 0             | 23285         | 23285 |
+| 2009 | 5           | 23369       | 0             | 23369         | 23517 |
+| 2010 | 3           | 7446        | 0             | 26881         | 27241 |
+| 2011 | 2           | 0           | 0             | 33721         | 33721 |
+| 2012 | 4           | 0           | 0             | 27901         | 27972 |
+| 2013 | 6           | 0           | 0             | 23162         | 23162 |
+| 2014 | 8           | 0           | 0             | 18565         | 18565 |
+| 2015 | 10          | 12          | 12            | 16182         | 16357 |
+| 2016 | 7           | 0           | 0             | 19008         | 21280 |
+| 2017 | 6           | 0           | 0             | 0             | 24739 |
+| 2018 | 1           | 306         | 306           | 306           | 40948 |
+| 2019 | 2           | 0           | 0             | 0             | 42945 |
+| 2020 | 1           | 0           | 0             | 0             | 45329 |
+| 2021 | 0           | 0           | 0             | 0             | 27573 |
+
+Whether "missing_day" implies missing data or no smoke to report has not been confirmed.
 
 
 ## Excerpts and Links
@@ -87,7 +93,7 @@ More information:
 Notes on decision of smoke day classification definition from paper's Supplementary Materials:
 - Validates HMS smoke product by comparing HMS smoke plumes against the NOAA Integrated Surface Data (ISD; https://www.ncdc.noaa.gov/isd/data-access) collected at four airports in California, Oregon, and Washington.
 - Calculated accuracy of HMS smoke product when used as a binary proxy for the presence of ground-level smoke on a daily basis for July-November of 2007-2020.
-- Validation shows that :
+- Validation shows that:
   * using all categories of HMS smoke to define smoke days leads to the highest true positive rate but introduces more false positives, or days categorized as non-smoke by airport data but smoke by HMS.
   * using heavy HMS smoke to define smoke days maximizes overall accuracy and minimizes false-positive rates.
 
@@ -96,6 +102,8 @@ HMS datasets in repository are:
 * [HMS_zipCodes_2020.csv](https://github.com/xiaodan-zhou/covid_wildfire/blob/master/data/HMS_zipCodes_2020.csv).
 
 Both CSVs consist of daily readings where the only value which appears is 5,16, or 27.
+The numbers represent the maximum smoke density value within the county/zip code for each day.
+
 
 In the repo code, HMS_county_2020.csv is used in two scripts:
 * [Utilities.R](https://github.com/xiaodan-zhou/covid_wildfire/blob/master/src/Utilities.R)
