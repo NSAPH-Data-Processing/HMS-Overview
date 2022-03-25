@@ -10,6 +10,40 @@ through the website.
 ## Missing values
 (Work shown in Jupyter Notebook hms_investigations_1.ipynb)
 
+#### Table: missing data by day
+
+Values:
+* `days` - total number of days that could be represented in the set.
+* `missing` - number of days for which no shapefile was found. Whether a missing
+  day implies missing data or no smoke to report has not been confirmed.
+* `NAN-Density` - the number of days for which no density values were recorded.
+* `unrepresented` - the sum of `missing` and `NAN-Density`.
+* `%` - `unrepresented` divided by `days` to produce percent of days per year that
+  are unrepresented.
+
+| year | days | missing | NAN-Density | unrepresented | %     |
+|------|------|---------|-------------|---------------|-------|
+| 2005 | 148  | 2       | 146         | 148           | 100   |
+| 2006 | 365  | 9       | 356         | 365           | 100   |
+| 2007 | 365  | 7       | 354         | 361           | 98.9  |
+| 2008 | 366  | 7       | 119         | 126           | 34.4  |
+| 2009 | 365  | 5       | 358         | 363           | 99.5  |
+| 2010 | 365  | 3       | 146         | 149           | 40.8  |
+| 2011 | 365  | 2       |             | 2             | 0.5   |
+| 2012 | 366  | 4       |             | 4             | 1.1   |
+| 2013 | 365  | 6       |             | 6             | 1.6   |
+| 2014 | 365  | 8       |             | 8             | 2.2   |
+| 2015 | 365  | 10      | 1           | 11            | 3.0   |
+| 2016 | 366  | 7       |             | 7             | 1.9   |
+| 2017 | 365  | 6       |             | 6             | 1.6   |
+| 2018 | 365  | 1       | 1           | 2             | 0.5   |
+| 2019 | 365  | 2       |             | 2             | 0.5   |
+| 2020 | 366  | 1       |             | 1             | 0.3   |
+| 2021 | 365  | 0       |             | 0             | 0     |
+
+
+#### Table: missing data by entry
+
 | year | Entries | NAN-Density | NAN-Start/End | NAN-Satellite |
 |------|---------|-------------|---------------|---------------|
 | 2005 | 6296    | 6296        | 0             | 6296          |
@@ -29,29 +63,6 @@ through the website.
 | 2019 | 42945   | 0           | 0             | 0             |
 | 2020 | 45329   | 0           | 0             | 0             |
 | 2021 | 27573   | 0           | 0             | 0             |
-
-
-| year | days | missing | NAN-Density |
-|------|------|---------|-------------|
-| 2005 | 146  | 2       | 146         |
-| 2006 | 356  | 9       | 356         |
-| 2007 | 358  | 7       | 354         |
-| 2008 | 359  | 7       | 119         |
-| 2009 | 360  | 5       | 358         |
-| 2010 | 362  | 3       | 146         |
-| 2011 | 363  | 2       |             |
-| 2012 | 362  | 4       |             |
-| 2013 | 359  | 6       |             |
-| 2014 | 357  | 8       |             |
-| 2015 | 355  | 10      | 1           |
-| 2016 | 359  | 7       |             |
-| 2017 | 359  | 6       |             |
-| 2018 | 364  | 1       | 1           |
-| 2019 | 363  | 2       |             |
-| 2020 | 365  | 1       |             |
-| 2021 | 365  | 0       |             |
-
-Whether "missing_day" implies missing data or no smoke to report has not been confirmed.
 
 
 ## Excerpts and Links
