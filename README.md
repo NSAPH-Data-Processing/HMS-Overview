@@ -8,12 +8,14 @@ available) to 2021.12.31 (the last day of 2021). Data up to the present day is a
 through the website.
 
 ## Missing values
-(Work shown in Jupyter Notebook hms_investigations_1.ipynb)
+(Work shown in Jupyter Notebook `hms_investigations_1.ipynb`)
 
 #### Table: missing data by day
 
 Values:
 * `days` - total number of days that could be represented in the set.
+* `no entries` - number of days which contained a shapefile with no entries.
+  This is presumed to represent a day in which no smoke was present.
 * `missing` - number of days for which no shapefile was found. Whether a missing
   day implies missing data or no smoke to report has not been confirmed.
 * `NAN-Density` - the number of days for which no density values were recorded.
@@ -21,25 +23,25 @@ Values:
 * `%` - `unrepresented` divided by `days` to produce percent of days per year that
   are unrepresented.
 
-| year | days | missing | NAN-Density | unrepresented | %     |
-|------|------|---------|-------------|---------------|-------|
-| 2005 | 148  | 2       | 146         | 148           | 100   |
-| 2006 | 365  | 9       | 356         | 365           | 100   |
-| 2007 | 365  | 7       | 354         | 361           | 98.9  |
-| 2008 | 366  | 7       | 119         | 126           | 34.4  |
-| 2009 | 365  | 5       | 358         | 363           | 99.5  |
-| 2010 | 365  | 3       | 146         | 149           | 40.8  |
-| 2011 | 365  | 2       |             | 2             | 0.5   |
-| 2012 | 366  | 4       |             | 4             | 1.1   |
-| 2013 | 365  | 6       |             | 6             | 1.6   |
-| 2014 | 365  | 8       |             | 8             | 2.2   |
-| 2015 | 365  | 10      | 1           | 11            | 3.0   |
-| 2016 | 366  | 7       |             | 7             | 1.9   |
-| 2017 | 365  | 6       |             | 6             | 1.6   |
-| 2018 | 365  | 1       | 1           | 2             | 0.5   |
-| 2019 | 365  | 2       |             | 2             | 0.5   |
-| 2020 | 366  | 1       |             | 1             | 0.3   |
-| 2021 | 365  | 0       |             | 0             | 0     |
+| year | days | no entries | missing | NAN-Density | unrepresented | %     |
+|------|------|------------|---------|-------------|---------------|-------|
+| 2005 | 149  | 1          | 2       | 146         | 148           | 99.3  |
+| 2006 | 365  | 4          | 5       | 356         | 361           | 98.9  |
+| 2007 | 365  | 5          | 2       | 354         | 356           | 97.5  |
+| 2008 | 366  | 4          | 3       | 119         | 122           | 33.3  |
+| 2009 | 365  | 3          | 2       | 358         | 360           | 98    |
+| 2010 | 365  | 3          | 0       | 146         | 146           | 40    |
+| 2011 | 365  | 2          | 0       | 0           | 0             | 0     |
+| 2012 | 366  | 3          | 1       | 0           | 1             | 0.2   |
+| 2013 | 365  | 6          | 0       | 0           | 0             | 0     |
+| 2014 | 365  | 8          | 0       | 0           | 0             | 0     |
+| 2015 | 365  | 8          | 2       | 1           | 3             | 0.8   |
+| 2016 | 366  | 5          | 2       | 0           | 2             | 0.5   |
+| 2017 | 365  | 1          | 5       | 0           | 5             | 1.3   |
+| 2018 | 365  | 1          | 1       | 1           | 2             | 0.5   |
+| 2019 | 365  | 0          | 2       | 0           | 2             | 0.5   |
+| 2020 | 366  | 0          | 1       | 0           | 1             | 0.3   |
+| 2021 | 365  | 0          | 0       | 0           | 0             | 0     |
 
 
 #### Table: missing data by entry

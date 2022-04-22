@@ -1,9 +1,20 @@
+import urllib
+import logging
 from datetime import datetime
 
 import requests
 import pandas as pd
 import geopandas as gpd
 from tqdm import tqdm
+
+# set up logger.
+datestr = datetime.today().strftime("%Y%m%d")
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename="hms_collection.log", 
+                    format='%(message)s',
+                    filemode="w")
+logger.setLevel(logging.INFO)
+logger.info(f"{datestr}\n\n")
 
 def confirm_matching_crs(gdf_list):
     """
@@ -29,18 +40,30 @@ meta_list = []
 
 
 for date in tqdm(dates):
+    logger.info(date)
     # define date vars
     year = date.year
     month = date.month
     day = date.day
     # plug date vars into url
     url = f"https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/{year}/{month:02}/hms_smoke{year}{month:02}{day:02}.zip"
-    #try to collect file from that url. If not there, skip to next date.
+    #try to collect file from that url. If this doesn't work, log it and skip to next date.
     try:
         tmp_df = gpd.read_file(url)
-    except:
+    except urllib.error.HTTPError:
+        logger.info(f"No file for {date}")
+        meta_dict = {"date": str(date), 
+                     "year": year,
+                     "missing": True}
+        meta_list.append(meta_dict)
         continue
-
+    except:
+        meta_dict = {"date": str(date), 
+                     "year": year,
+                     "missing":False, "other_error": True}
+        meta_list.append(meta_dict)
+        logger.warning(f"Error for file {date}\n       error:", exc_info=True)
+        continue
     # record date and year values in df as strings to enable saving to shapefile.
     tmp_df["date"] = str(date)
     tmp_df['year'] = str(year)
@@ -48,12 +71,13 @@ for date in tqdm(dates):
     # record columns and projection of original dataframe and add to meta_dict
     meta_dict = {
         "date": str(date),
+        "year": year,
         "columns": ", ".join(tmp_df.columns.values.tolist()),
-        "crs": str(tmp_df.crs)
+        "entries":len(tmp_df),
+        "crs": str(tmp_df.crs),
+        "missing": False
     }
     meta_list.append(meta_dict)
-
-
     # add to list
     df_list.append(tmp_df)
 
@@ -69,4 +93,4 @@ hms_df["Density"] = hms_df["Density"].astype(float)
 hms_df.to_file("../data/hms_smoke_shapes_2005_2021/hms_smoke_shapes_20050805_20211231.shp")
 
 meta_df = pd.DataFrame.from_records(meta_list)
-meta_df.to_csv("../data/hms_2005_2021_metadata.csv")
+meta_df.to_csv("../data/hms_2005_2021_metadata.csv", index=False)
