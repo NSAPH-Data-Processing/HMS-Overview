@@ -7,6 +7,16 @@ The dataset reviewed contains data from 2005.08.05 (the first day for which shap
 available) to 2021.12.31 (the last day of 2021). Data up to the present day is available
 through the website.
 
+## Code
+
+`1_collect_HMS_daily_shapes.py`
+*   Produces shapefile and CSV of metadata containing the original column names in each file,
+    number of entries, and whether a shapefile was present for that date.
+
+`2_produce_date_json.py`
+*   Produces `hms_2005_2021_absent_dates.json`, which contains easy-to-reference lists of
+    dates in the dataset for which shapefiles are empty or missing.
+
 ## Missing values
 (Work shown in Jupyter Notebook `hms_investigations_1.ipynb`)
 
