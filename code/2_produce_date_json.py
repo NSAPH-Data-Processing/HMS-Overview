@@ -15,4 +15,4 @@ dates_dict = {  "first_date": meta_df.iloc[0]['date'],
                 "no_entries": no_entries}
 
 with open('../data/hms_2005_2021_absent_dates.json', 'w') as fp:
-    json.dump(dates_dict, fp)
+    json.dump(dates_dict, fp, indent=2)
