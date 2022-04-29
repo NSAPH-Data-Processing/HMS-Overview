@@ -1,3 +1,9 @@
+"""
+This script downloads, concatenates, and saves to a combined shapefile 
+the hms smoke plume shapefiles available at 
+https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile.
+It also produces a CSV with metadata for each date in the range specified.
+"""
 import urllib
 import logging
 from datetime import datetime
@@ -27,7 +33,7 @@ def confirm_matching_crs(gdf_list):
         print(crs_set)
 
 
-# Define time period to collect. Here, collecting from earliest available to end of 2016.
+# Define time period to collect. Here, collecting from earliest available to end of 2021.
 start_date = datetime(2005, 8, 5)
 end_date = datetime(2021, 12, 31)
 
@@ -92,8 +98,9 @@ hms_df["Density"] = hms_df["Density"].astype(float)
 #save data to file.
 hms_df.to_file("../data/hms_smoke_shapes_2005_2021/hms_smoke_shapes_20050805_20211231.shp")
 
-
+# produce dataframe of metadata records
 meta_df = pd.DataFrame.from_records(meta_list)
 # format entries column as int
 meta_df['entries'] = meta_df['entries'].astype("Int64")
+# save to CSV
 meta_df.to_csv("../data/hms_2005_2021_metadata.csv", index=False)
