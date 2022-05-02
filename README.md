@@ -30,7 +30,8 @@ The columns in hms_smoke_shapes_2005_2021 are as follows:
 -   `tessellate`, `extrude`, `visibility` `altitudeMo` - these columns are only collected
      for one day in the full span of HMS data 2005-2021. It is unclear what they mean or 
      what use these values might have. They are retained in this dataset purely for posterity.
--   `Satellite` - name or identifier of satellite which produced the source images.
+-   `Satellite` - name or identifier of satellite which produced the source images. It starts to 
+    be regularly used after 2016.
 
 ## Missing values
 (Work shown in Jupyter Notebook `hms_investigations_1.ipynb`)
