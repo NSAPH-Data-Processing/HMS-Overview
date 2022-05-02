@@ -17,6 +17,21 @@ through the website.
 *   Produces `hms_2005_2021_absent_dates.json`, which contains easy-to-reference lists of
     dates in the dataset for which shapefiles are empty or missing.
 
+## Data
+
+The columns in hms_smoke_shapes_2005_2021 are as follows:
+-   `ID` - a daily unique ID. It is assigned each day starting from "1". Not used after 2017.
+-   `Start` - time the plume is first observed.
+-   `End` - time the plume is last observed.
+-   `Density` - density of the plume shape. Value will be 5, 16, or 27.
+-   `geometry` - shape data for the plume.
+-   `date` - date of plume observation.
+-   `year` - year of plume observation.
+-   `tessellate`, `extrude`, `visibility` `altitudeMo` - these columns are only collected
+     for one day in the full span of HMS data 2005-2021. It is unclear what they mean or 
+     what use these values might have. They are retained in this dataset purely for posterity.
+-   `Satellite` - name or identifier of satellite which produced the source images.
+
 ## Missing values
 (Work shown in Jupyter Notebook `hms_investigations_1.ipynb`)
 
