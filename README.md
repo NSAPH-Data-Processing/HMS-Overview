@@ -1,6 +1,6 @@
 # HMS Smoke Product Data Overview
-This repository contains code, documentation and general information concerning the
-HMS smoke product shapefiles which can be downloaded at
+This repository contains code, documentation and general information concerning
+HMS smoke product, the shapefiles of which can be downloaded at
 https://satepsanone.nesdis.noaa.gov/pub/FIRE/web/HMS/Smoke_Polygons/Shapefile/ .
 
 The dataset reviewed contains data from 2005.08.05 (the first day for which shapes are
